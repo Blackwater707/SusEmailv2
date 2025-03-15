@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Email Details</title>
+</head>
+<body>
+    <h2>Your password was found in a data breach! Change it NOW!</h2>
+    <p>Hello,</p>
+    <p>Your password was found in a recent data breach. For your safety, please <a href="#">click here</a> to reset your password.</p>
+    <p>[No real links, just for simulation]</p>
+    <button onclick="showHeaders()">Show Headers</button>
+    <pre id="headers" style="display:none;">
+        Delivered-To: user@example.com
+        Received: by 2002:a17:906:921:0:0:0:0 with SMTP id x11csp5873832ejb;
+                Sat, 15 Mar 2025 18:30:00 +0800 (SGT)
+        X-Received: by 2002:a0c:1a98:: with SMTP id d24mr10241295qvv.11.1647432600;
+                Sat, 15 Mar 2025 18:30:00 +0800 (SGT)
+        Return-Path: <support@fake-gmail.com>
+        Received: from smtp.fake-gmail.com ([192.168.1.101])
+                by mx.google.com with ESMTP id j23si2359487qka.202.2025.03.15.02.30.00
+                for <user@example.com>;
+                Sat, 15 Mar 2025 18:30:00 +0800 (SGT)
+        Received-SPF: softfail (google.com: domain of transitioning support@fake-gmail.com does not designate 192.168.1.101 as permitted sender) client-ip=192.168.1.101;
+        Authentication-Results: mx.google.com;
+                spf=softfail (google.com: domain of transitioning support@fake-gmail.com does not designate 192.168.1.101 as permitted sender) smtp.mailfrom=support@fake-gmail.com;
+                dkim=pass header.i=@fake-gmail.com header.s=default header.b=ZxyVDEsL;
+                dmarc=pass IGNITE{SP00F_HDRS} (p=QUARANTINE sp=NONE dis=NONE) header.from=fake-gmail.com
+        DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=fake-gmail.com; s=default;
+                h=mime-version:from:to:subject:date:message-id;
+                bh=47DEQpj8HBSa+tmQjkbhFZ4/0cULguH0arolumGdwgA=;
+                b=ZxyVDEsLghdxU/SNmabc123Wxyz+M90QrsTuV89TjKLfg3wv12V57PQR678LUvzG==
+        From: support@fake-gmail.com
+        To: user@example.com
+        Subject: Your password was found in a data breach! Change it NOW!
+        Date: Sat, 15 Mar 2025 18:30:00 +0800
+        Message-ID: <6g3pQ32Y0032pqlo2flkp@fake-gmail.com>
+        MIME-Version: 1.0
+        Content-Type: text/plain; charset="UTF-8"
+        X-Mailer: Fake Gmail Sender 3.1
+        X-Customs: Unverified
+        
+    </pre>
+    <script>
+        function showHeaders() {
+            document.getElementById("headers").style.display = "block";
+        }
+    </script>
+</body>
+</html>
